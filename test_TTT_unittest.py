@@ -1,4 +1,4 @@
-import Tic_tac_toe
+import Tic-tac-toe
 import unittest
 
 
@@ -21,7 +21,7 @@ class TestTicTacToe(unittest.TestCase):
         self.assertTrue(checkWinner(['X', ' ', ' '," ","X"," "," "," ","X"], ['X','O'], "player0", "player1"))
         self.assertTrue(checkWinner([' ', ' ', 'X'," ","X"," ","X"," "," "], ['X','O'], "player0", "player1"))
 
-     def test_input(self):
+    def test_input(self):
         @patch('Tic-tac-toe.get_input', return_value="x")
         def test_lowerx(self, input):
             self.assertEqual(answer(), "x")
