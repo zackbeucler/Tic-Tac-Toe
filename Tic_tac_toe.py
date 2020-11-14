@@ -31,6 +31,10 @@ def playerPickSymbol(first):
     # This function takes the first player as a parameter nd then returns the symbol they choose
     return input("\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
 
+def answer():
+    answer = playerPickSymbol("player")
+    return answer
+
 
 def placePiece(player, i, symbols, board):
     # This function takes the player, their symbol index, the list of symbols, and the board list as parameters
