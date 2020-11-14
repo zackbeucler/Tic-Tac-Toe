@@ -31,6 +31,7 @@ def playerPickSymbol(first):
     # This function takes the first player as a parameter nd then returns the symbol they choose
     return input("\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
 
+
 def answer():
     answer = playerPickSymbol("player")
     return answer
@@ -210,9 +211,16 @@ def play_tic_tac_toe():
         if(playAgain() is not True):
             again = False
 
+    def main():
+        play_tic_tac_toe()  # starts a game of tic tac toe
 
+<<<<<<< HEAD
 def main():
         play_tic_tac_toe()  # starts a game of tic tac toe
 
 if __name__ == "__main__":
     main()
+=======
+    if __name__ == "__main__":
+        main()
+>>>>>>> cfa7395b52c7c8dfb5f144e0c21167c6bbd6e232
