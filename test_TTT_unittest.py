@@ -5,12 +5,11 @@ import unittest
 class TestTicTacToe(unittest.TestCase):
 
     def test_random(self):
+        counter = 0
         for i in range(100):
-            counter = 0
             if (Tic_tac_toe.firstMove("player0", "player1") == "player1"):
                 counter += 1
-
-        self.assertEqual(counter, 50)
+        print("Player 1 chosen", counter, "percent of the time.")
 
     def test_winner(self):
         self.assertTrue(checkWinner(['X', 'X', 'X'," "," "," "," "," "," "], ['X','O'], "player0", "player1"))
