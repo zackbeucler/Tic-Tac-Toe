@@ -1,4 +1,4 @@
-import Tic-tac-toe
+import Tic_tac_toe.py
 import unittest
 
 
