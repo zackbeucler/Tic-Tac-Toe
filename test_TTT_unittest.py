@@ -13,10 +13,12 @@ class TestTicTacToe(unittest.TestCase):
         self.assertEqual(counter, 50)
 
     def test_winner(self):
-        print()
 
     def test_input(self):
-        print()
+        self.assertEqual(Tic_tac_toe.playerPickSymbol(first), "X")
+        self.assertEqual(Tic_tac_toe.playerPickSymbol(first), "x")
+        self.assertEqual(Tic_tac_toe.playerPickSymbol(first), "O")
+        self.assertEqual(Tic_tac_toe.playerPickSymbol(first), "o")
 
 
 if __name__ == '__main__':
