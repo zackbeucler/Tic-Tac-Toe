@@ -1,5 +1,6 @@
 import Tic_tac_toe
 import unittest
+import unittest.mock
 
 
 class TestTicTacToe(unittest.TestCase):
@@ -12,14 +13,22 @@ class TestTicTacToe(unittest.TestCase):
         print("Player 1 chosen", counter, "percent of the time.")
 
     def test_winner(self):
-        self.assertTrue(Tic_tac_toe.checkWinner(['X', 'X', 'X'," "," "," "," "," "," "], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner([" ", " ", " ","X","X","X"," "," "," "], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner([' ', ' ', ' '," "," "," ","X","X","X"], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(['X', ' ', ' ',"X"," "," ","X"," "," "], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner([' ', 'X', ' '," ","X"," "," ","X"," "], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner([' ', ' ', 'X'," "," ","X"," "," ","X"], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(['X', ' ', ' '," ","X"," "," "," ","X"], ['X','O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner([' ', ' ', 'X'," ","X"," ","X"," "," "], ['X','O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            ['X', 'X', 'X', " ", " ", " ", " ", " ", " "], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            [" ", " ", " ", "X", "X", "X", " ", " ", " "], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            [' ', ' ', ' ', " ", " ", " ", "X", "X", "X"], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            ['X', ' ', ' ', "X", " ", " ", "X", " ", " "], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            [' ', 'X', ' ', " ", "X", " ", " ", "X", " "], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            [' ', ' ', 'X', " ", " ", "X", " ", " ", "X"], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            ['X', ' ', ' ', " ", "X", " ", " ", " ", "X"], ['X', 'O'], "player0", "player1"))
+        self.assertTrue(Tic_tac_toe.checkWinner(
+            [' ', ' ', 'X', " ", "X", " ", "X", " ", " "], ['X', 'O'], "player0", "player1"))
 
     def test_input(self):
         @patch('Tic-tac-toe.get_input', return_value="x")
@@ -37,6 +46,7 @@ class TestTicTacToe(unittest.TestCase):
         @patch('Tic-tac-toe.get_input', return_value="O")
         def test_uppero(self, input):
             self.assertEqual(Tic_tac_toe.answer(), "O")
+
 
 if __name__ == '__main__':
     unittest.main()
