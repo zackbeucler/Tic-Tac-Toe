@@ -1,11 +1,6 @@
 import Tic_tac_toe
 import unittest
-<<<<<<< HEAD
 from unittest.mock import patch
-=======
-import unittest.mock
-
->>>>>>> cfa7395b52c7c8dfb5f144e0c21167c6bbd6e232
 
 class TestTicTacToe(unittest.TestCase):
 
@@ -20,7 +15,7 @@ class TestTicTacToe(unittest.TestCase):
         print("Player 1 chosen", counter, "percent of the time.")
 
     def test_winner(self):
-<<<<<<< HEAD
+
         """This test case ensures that the program correctly identifies when there is a winner"""
 
         self.assertTrue(Tic_tac_toe.checkWinner(['X', 'X', 'X'," "," "," "," "," "," "], ['X','O'], "player0", "player1"))
@@ -31,24 +26,6 @@ class TestTicTacToe(unittest.TestCase):
         self.assertTrue(Tic_tac_toe.checkWinner([' ', ' ', 'X'," "," ","X"," "," ","X"], ['X','O'], "player0", "player1"))
         self.assertTrue(Tic_tac_toe.checkWinner(['X', ' ', ' '," ","X"," "," "," ","X"], ['X','O'], "player0", "player1"))
         self.assertTrue(Tic_tac_toe.checkWinner([' ', ' ', 'X'," ","X"," ","X"," "," "], ['X','O'], "player0", "player1"))
-=======
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            ['X', 'X', 'X', " ", " ", " ", " ", " ", " "], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            [" ", " ", " ", "X", "X", "X", " ", " ", " "], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            [' ', ' ', ' ', " ", " ", " ", "X", "X", "X"], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            ['X', ' ', ' ', "X", " ", " ", "X", " ", " "], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            [' ', 'X', ' ', " ", "X", " ", " ", "X", " "], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            [' ', ' ', 'X', " ", " ", "X", " ", " ", "X"], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            ['X', ' ', ' ', " ", "X", " ", " ", " ", "X"], ['X', 'O'], "player0", "player1"))
-        self.assertTrue(Tic_tac_toe.checkWinner(
-            [' ', ' ', 'X', " ", "X", " ", "X", " ", " "], ['X', 'O'], "player0", "player1"))
->>>>>>> cfa7395b52c7c8dfb5f144e0c21167c6bbd6e232
 
 
     @patch('Tic_tac_toe.playerPickSymbol', return_value="X")

@@ -214,13 +214,13 @@ def play_tic_tac_toe():
     def main():
         play_tic_tac_toe()  # starts a game of tic tac toe
 
-<<<<<<< HEAD
+
 def main():
         play_tic_tac_toe()  # starts a game of tic tac toe
 
 if __name__ == "__main__":
     main()
-=======
+
     if __name__ == "__main__":
         main()
->>>>>>> cfa7395b52c7c8dfb5f144e0c21167c6bbd6e232
+
