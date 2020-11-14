@@ -24,19 +24,19 @@ class TestTicTacToe(unittest.TestCase):
      def test_input(self):
         @patch('Tic-tac-toe.get_input', return_value="x")
         def test_lowerx(self, input):
-            self.assertEqual(answer(), "X")
-
-        @patch('Tic-tac-toe.get_input', return_value="x")
-        def test_upperx(self, input):
             self.assertEqual(answer(), "x")
 
-        @patch('Tic-tac-toe.get_input', return_value="x")
-        def test_lowero(self, input):
-            self.assertEqual(answer(), "O")
+        @patch('Tic-tac-toe.get_input', return_value="X")
+        def test_upperx(self, input):
+            self.assertEqual(answer(), "X")
 
-        @patch('Tic-tac-toe.get_input', return_value="x")
-        def test_uppero(self, input):
+        @patch('Tic-tac-toe.get_input', return_value="o")
+        def test_lowero(self, input):
             self.assertEqual(answer(), "o")
+
+        @patch('Tic-tac-toe.get_input', return_value="O")
+        def test_uppero(self, input):
+            self.assertEqual(answer(), "O")
 
 if __name__ == '__main__':
     unittest.main()
