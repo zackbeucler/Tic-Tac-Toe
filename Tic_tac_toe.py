@@ -155,7 +155,7 @@ def play_tic_tac_toe():
     # runs through the tic tac toe game in proper order
     again = True
 
-    while(playAgain):
+    while(again):
         showGameRules()
 
         player0 = askPlayerName(0)
@@ -211,4 +211,8 @@ def play_tic_tac_toe():
             again = False
 
 
-play_tic_tac_toe()  # starts a game of tic tac toe
+def main():
+        play_tic_tac_toe()  # starts a game of tic tac toe
+
+if __name__ == "__main__":
+    main()
