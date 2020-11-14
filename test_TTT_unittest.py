@@ -13,6 +13,14 @@ class TestTicTacToe(unittest.TestCase):
         self.assertEqual(counter, 50)
 
     def test_winner(self):
+        self.assertTrue(checkWinner(['X', 'X', 'X'," "," "," "," "," "," "], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner([" ", " ", " ","X","X","X"," "," "," "], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner([' ', ' ', ' '," "," "," ","X","X","X"], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner(['X', ' ', ' ',"X"," "," ","X"," "," "], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner([' ', 'X', ' '," ","X"," "," ","X"," "], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner([' ', ' ', 'X'," "," ","X"," "," ","X"], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner(['X', ' ', ' '," ","X"," "," "," ","X"], ['X','O'], "player0", "player1"))
+        self.assertTrue(checkWinner([' ', ' ', 'X'," ","X"," ","X"," "," "], ['X','O'], "player0", "player1"))
 
     def test_input(self):
         self.assertEqual(Tic_tac_toe.playerPickSymbol(first), "X")
