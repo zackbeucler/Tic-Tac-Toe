@@ -167,15 +167,19 @@ def fullBoard(board):
 
 def playAgain():
     # This function asks the user if they want to play again and returns their answer asn a boolean
-    valid = True   #error handling
-    validInputs = ['p','q']
+    valid = True  # error handling
+    validInputs = ['p', 'q']
 
-    while(valid):   #handles error --> invalid input
+    while(valid):  # handles error --> invalid input
         again = input("\nType 'p' to play again or type 'q' to quit: ")
         if(again.lower() not in validInputs):
             print("\n")
-    if(again.lower() == 'p'):
-        return True
+        else:
+            if(again.lower() == 'p'):
+                return True
+            else:
+                print("Thanks for playing!")
+                valid = False
     return False
 
 
@@ -233,11 +237,15 @@ def play_tic_tac_toe():
 
             if(checkWinner(board, symbols, player0, player1)):
                 winner = False
+                turn = 9
             if(fullBoard(board)):
                 full = False
+                winner = False
+                turn = 9
 
         if(playAgain() is not True):
             again = False
+            break
 
 
 def main():
