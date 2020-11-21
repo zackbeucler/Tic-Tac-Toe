@@ -1,17 +1,21 @@
 # coding=utf-8
 import random
-
+import logging
+import logging
+import logging.handlers
+import os
+from datetime import datetime
 
 def showGameRules():
     # This function prints out the rules at the beginning of the game
     print("Tic Tac Toe!\n\n")
-    """
+    
     print("RULES...................\n\n")
     print("1.  Two players select spaces on the 3×3 grid. The two players alternate when choosing spaces. (First turn should be selected randomly.)\n\n")
     print("2. If a player gets three in a row horizontally, vertically, or diagonally in any fashion, this player wins the game.\n\n")
     print("3. If the game continues until all the spaces are selected and neither player has three in a row, then the match is a draw/push.\n\n")
     print("To select a space, type one of the corresponding indices:\n\n1 | 2 | 3\n---------\n4 | 5 | 6\n---------\n7 | 8 | 9\n\n")
-    """
+    
 
 
 def askPlayerName(i):
@@ -34,14 +38,12 @@ def firstMove(player0, player1):
 
 def playerPickSymbol(first):
     # This function takes the first player as a parameter nd then returns the symbol they choose
-    playerSymbol = input(
-        "\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
+    playerSymbol = input("\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
 
     # while the player hasnt entered any of the desired symbols
     while playerSymbol != "X" and playerSymbol != "x" and playerSymbol != "O" and playerSymbol != "o":
-        print("Invalid Symbol entered")
-        playerSymbol = input(
-            "\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")  # ask them again until they enter a correct symbol
+        print("\nInvalid Symbol entered. Please type 'X' or 'O':" )
+        playerSymbol = input("\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")  # ask them again until they enter a correct symbol
 
     return playerSymbol
 
@@ -58,10 +60,19 @@ def placePiece(player, i, symbols, board):
     #error handling
     validNums = [1,2,3,4,5,6,7,8,9]
     taken = True
-    valid = True
+    valid = False
 
+    while(not valid):
+        valid = True
+        selection = input("\nPlease enter the index of the space you would like to select: ")
+        try:
+            selection = int(selection)
+        except(ValueError):
+            print("\nPlease enter an integer between 1 and 9 for the sqpace you would like to choose. Make sure this space has not been taken already")
+            valid = False
+        
     while(taken):
-        selection = eval(input("\n"+player+", make your selection: \n"))
+        
         if(selection not in validNums):   #handles error --> player enters invalid int
             print("\nPlease enter an integer between 1 and 9 for the sqpace you would like to choose. Make sure this space has not been taken already")
         elif(board[selection-1] == " "):
@@ -69,6 +80,9 @@ def placePiece(player, i, symbols, board):
             valid = False
         else:   #handles --> player selects a space that is taken
             print("\nThis space is taken. Try again: ")
+        logging.info("selection: "+str(selection))
+
+
 
     board[selection-1] = symbols[i]
     return board
@@ -91,7 +105,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[5] != " " and board[5] == board[2]):
+    if(board[5] != " " and board[5] == board[2]):
         if(board[8] == board[5]):
             if(board[5] == symbols[0]):
                 print(player0, "has won!")
@@ -99,7 +113,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[4] != " " and board[4] == board[1]):
+    if(board[4] != " " and board[4] == board[1]):
         print("True")
         if(board[7] == board[4]):
             if(board[4] == symbols[0]):
@@ -108,7 +122,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[4] != " " and board[4] == board[3]):
+    if(board[4] != " " and board[4] == board[3]):
         if(board[5] == board[4]):
             if(board[4] == symbols[0]):
                 print(player0, "has won!")
@@ -116,7 +130,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[7] != " " and board[7] == board[6]):
+    if(board[7] != " " and board[7] == board[6]):
         if(board[8] == board[7]):
             if(board[7] == symbols[0]):
                 print(player0, "has won!")
@@ -124,7 +138,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[3] != " " and board[3] == board[0]):
+    if(board[3] != " " and board[3] == board[0]):
         if(board[3] == board[6]):
             if(board[0] == symbols[0]):
                 print(player0, "has won!")
@@ -132,7 +146,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[4] != " " and board[4] == board[0]):
+    if(board[4] != " " and board[4] == board[0]):
         if(board[8] == board[4]):
             if(board[4] == symbols[0]):
                 print(player0, "has won!")
@@ -140,7 +154,7 @@ def checkWinner(board, symbols, player0, player1):
                 print(player1, "has won!")
             return True
 
-    elif(board[4] != " " and board[4] == board[2]):
+    if(board[4] != " " and board[4] == board[2]):
         if(board[6] == board[4]):
             if(board[4] == symbols[0]):
                 print(player0, "has won!")
@@ -231,6 +245,7 @@ def play_tic_tac_toe():
                 current = player1
 
             outputGameBoard(board)
+            logging.info("current player: "+current)
 
             turn = turn + 1
             i = i + 1
@@ -242,6 +257,9 @@ def play_tic_tac_toe():
                 full = False
                 winner = False
                 turn = 9
+
+            logging.info("winner? "+str(winner))
+            logging.info("full? "+str(full))
 
         if(playAgain() is not True):
             again = False
