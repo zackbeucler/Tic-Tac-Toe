@@ -40,12 +40,20 @@ def answer():
 def placePiece(player, i, symbols, board):
     # This function takes the player, their symbol index, the list of symbols, and the board list as parameters
     # The user chooses their space, and the function adds the selection to the board list and returns the board list
+
+    #error handling
+    validNums = [1,2,3,4,5,6,7,8,9]
     taken = True
+    valid = True
+
     while(taken):
         selection = eval(input("\n"+player+", make your selection: \n"))
-        if(board[selection-1] == " "):
+        if(selection not in validNums):   #handles error --> player enters invalid int
+            print("\nPlease enter an integer between 1 and 9 for the sqpace you would like to choose. Make sure this space has not been taken already")
+        elif(board[selection-1] == " "):
             taken = False
-        else:
+            valid = False
+        else:   #handles --> player selects a space that is taken
             print("\nThis space is taken. Try again: ")
 
     board[selection-1] = symbols[i]
@@ -145,7 +153,13 @@ def fullBoard(board):
 
 def playAgain():
     # This function asks the user if they want to play again and returns their answer asn a boolean
-    again = input("\nType 'p' to play again or type 'q' to quit: ")
+    valid = True   #error handling
+    validInputs = ['p','q']
+
+    while(valid):   #handles error --> invalid input
+        again = input("\nType 'p' to play again or type 'q' to quit: ")
+        if(again.lower() not in validInputs):
+            print("\n")
     if(again.lower() == 'p'):
         return True
     return False
@@ -220,7 +234,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    if __name__ == "__main__":
-        main()
 
