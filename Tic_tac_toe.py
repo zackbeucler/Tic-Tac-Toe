@@ -16,7 +16,12 @@ def showGameRules():
 
 def askPlayerName(i):
     # This function asks for a player name and returns it
-    return input("Player "+str(i)+" enter your name: ")
+    # only error is if the player doesent enter a name at all
+    playerName = input("Player "+str(i)+" enter your name: ")
+    while playerName == "":
+        print("Invalid name entered")
+        playerName = input("Player "+str(i)+" enter your name: ")
+    return playerName
 
 
 def firstMove(player0, player1):
@@ -29,7 +34,16 @@ def firstMove(player0, player1):
 
 def playerPickSymbol(first):
     # This function takes the first player as a parameter nd then returns the symbol they choose
-    return input("\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
+    playerSymbol = input(
+        "\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")
+
+    # while the player hasnt entered any of the desired symbols
+    while playerSymbol != "X" and playerSymbol != "x" and playerSymbol != "O" and playerSymbol != "o":
+        print("Invalid Symbol entered")
+        playerSymbol = input(
+            "\n"+first+", you go first! Type 'X' or 'O' to choose your symbol:  ")  # ask them again until they enter a correct symbol
+
+    return playerSymbol
 
 
 def answer():
