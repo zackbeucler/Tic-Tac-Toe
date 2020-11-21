@@ -239,9 +239,6 @@ def play_tic_tac_toe():
         if(playAgain() is not True):
             again = False
 
-    def main():
-        play_tic_tac_toe()  # starts a game of tic tac toe
-
 
 def main():
         play_tic_tac_toe()  # starts a game of tic tac toe
