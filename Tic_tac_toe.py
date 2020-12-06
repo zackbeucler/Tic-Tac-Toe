@@ -1,6 +1,6 @@
 # coding=utf-8
 import random
-#import game-log
+from game_log import log
 
 def showGameRules():
     # This function prints out the rules at the beginning of the game
@@ -76,7 +76,7 @@ def placePiece(player, i, symbols, board):
             valid = False
         else:   #handles --> player selects a space that is taken
             print("\nThis space is taken. Try again: ")
-        #game-log.log.info("selection: "+str(selection))
+        log.info("selection: "+str(selection))
 
 
 
@@ -241,7 +241,7 @@ def play_tic_tac_toe():
                 current = player1
 
             outputGameBoard(board)
-            logging.info("current player: "+current)
+            log.info("current player: "+current)
 
             turn = turn + 1
             i = i + 1
@@ -254,8 +254,8 @@ def play_tic_tac_toe():
                 winner = False
                 turn = 9
 
-            #game-log.log.info("winner? "+str(winner))
-            #game-log.log.info("full? "+str(full))
+            log.info("winner? "+str(not winner))
+            log.info("full? "+str(not full))
 
         if(playAgain() is not True):
             again = False
