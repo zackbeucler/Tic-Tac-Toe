@@ -17,5 +17,10 @@
 - Type "python -m Tic_tac_toe" to run the program. 
 
 # Testing the Program
-- In the repository there is a log class that is used to test the main program Tic_tac_toe.py
+- In the repository there is a test file named "test_TTT_unittest.py"
+- To run the test file, navigate to your terminal program
+- Change directory to the folder holding the repository
+- Type into the command line "python -m Change test_TTT_unittest"
+- First, the test file checks to see if the first turn is chosen at random by testing the function "firstMove()"
+  - The function is called 100 times. The test file outputs the percent of the time player 0 is chosen to go first. If random, this output will be 50%
 - We have added logs to the program file. To view the logs, navigate to the directory of the repository and open the file game-log.log
