@@ -21,6 +21,15 @@
 - To run the test file, navigate to your terminal program
 - Change directory to the folder holding the repository
 - Type into the command line "python -m Change test_TTT_unittest"
-- First, the test file checks to see if the first turn is chosen at random by testing the function "firstMove()"
-  - The function is called 100 times. The test file outputs the percent of the time player 0 is chosen to go first. If random, this output will be 50%
-- We have added logs to the program file. To view the logs, navigate to the directory of the repository and open the file game-log.log
+- First, the test file checks to see if the first turn is chosen at random by testing the function "firstMove"
+  - The function is called 100 times. The test file outputs the percent of the time player 1 is chosen to go first. If random, this output will be 50%
+- Next, the test files tests to make sure the "checkWinner" function correctly identifies a winner only when there is actually a winner
+  - There are eight different ways to win, so the next eight outputs should be "true"
+- Lastly, the test file tests to make sure that, when the first player selects their symbol, the program assigns the player the correct symbol. 
+  - The file tests all four possible inputs for a symbol, so the last four outputs should all be "true" as long as the program is accurate
+  
+# Logging the Program
+- We have added logs to the program file "Tic_tac_toe.py" (log formatting done using the logging class: "game_log.py")
+- To view these logs, first run the program
+- Next, navigate to the file in the repository "game-log.log"
+- There should be a log for each space selected, and two boolean logs, one that is true if there is a winner, the other is true if the board is full
