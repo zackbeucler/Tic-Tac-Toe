@@ -197,7 +197,6 @@ def play_tic_tac_toe():
     # main function from which all other functions are called
     # runs through the tic tac toe game in proper order
     again = True
-    os.remove("game-log.log")
 
     while(again):
         showGameRules()
