@@ -55,6 +55,7 @@ def placePiece(player, i, symbols, board):
     
     while(not valid):
         taken = True
+        selection = ""
         try:
             selection = int(input("\nPlease enter the index of the space you would like to select: "))
             if(board[selection-1] != " "):
@@ -83,70 +84,61 @@ def outputGameBoard(board):
 def checkWinner(board, symbols, player0, player1):
     # This function takes the board, symbols list, and both players as parameters, checks the game board to see if there is a winner,
     # and outputs and returns the winner if there is one
-    if(board[1] != " " and board[1] == board[0]):
-        if(board[2] == board[1]):
-            if(board[1] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[0] == board[1] == board[2] != " "):
+        if(board[1] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[5] != " " and board[5] == board[2]):
-        if(board[8] == board[5]):
-            if(board[5] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[2] == board[5] == board[8] != " "):
+        if(board[5] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[4] != " " and board[4] == board[1]):
-        print("True")
-        if(board[7] == board[4]):
-            if(board[4] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[1] == board[4] == board[7] != " "):
+        if(board[4] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[4] != " " and board[4] == board[3]):
-        if(board[5] == board[4]):
-            if(board[4] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[3] == board[4] == board[5] != " "):
+        if(board[4] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[7] != " " and board[7] == board[6]):
-        if(board[8] == board[7]):
-            if(board[7] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[6] == board[7] == board[8] != " "):
+        if(board[7] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[3] != " " and board[3] == board[0]):
-        if(board[3] == board[6]):
-            if(board[0] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[0] == board[3] == board[6] != " "):
+        if(board[0] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[4] != " " and board[4] == board[0]):
-        if(board[8] == board[4]):
-            if(board[4] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[0] == board[4] == board[8] != " "):
+        if(board[4] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
-    if(board[4] != " " and board[4] == board[2]):
-        if(board[6] == board[4]):
-            if(board[4] == symbols[0]):
-                print("\n"+player0, "has won!")
-            else:
-                print("\n"+player1, "has won!")
-            return True
+    if(board[2] == board[4] == board[6] != " "):
+        if(board[4] == symbols[0]):
+            print("\n"+player0, "has won!")
+        else:
+            print("\n"+player1, "has won!")
+        return True
 
     return False
 
