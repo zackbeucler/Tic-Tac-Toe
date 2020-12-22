@@ -12,7 +12,7 @@
 
 # Running the Program
 - In your file explorer, navigate to the repository folder and copy the file path (Tic_tac_toe.py is the main program file)
-- Open your terminal program
+- Open your terminal program if you are using MacOS or open your Console program if you are on Windows
 - Change directory to the folder holding the repository
 - Type "python -m Tic_tac_toe" to run the program. 
 
